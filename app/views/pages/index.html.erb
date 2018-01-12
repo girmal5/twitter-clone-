@@ -1,0 +1,33 @@
+<% if !user_signed_in? %>
+  <style>
+    body {
+        background:url("/bg2.jpg") no-repeat center center fixed ;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+
+    }
+    h1 {
+      /* color:white; */
+    }
+
+    .container-index{
+        margin-right: 15%;
+        margin-left: 15%;
+    }
+
+  </style>
+
+  <div class="container container-index">
+      <h1> Welcome to Twitter </h1>
+</div>
+
+<div class="container container-index"> <h5> #Not Signed In </h5> </div>
+
+<% else %>
+
+<div> Signed in </div>
+
+<% end %>
