@@ -11,23 +11,78 @@
     }
     h1 {
       /* color:white; */
+        font-weight: bold;
     }
 
     .container-index{
         margin-right: 15%;
         margin-left: 15%;
+
+
+    }
+
+    .text{
+      color:black;
+
+    }
+
+    h5{
+      color:gray;
+    }
+
+    .footer-link{
+      text-align:center;
+      color:black;
+      margin-top:10%
+
+    }
+
+    .log-in {
+      float: right;
+      width: 350px;
+      height: 250px;
+      margin-top: 10%;
+    }
+
+    .sign-up {
+      float: right;
+      width: 350px;
+      height: 250px;
     }
 
   </style>
+  <div class="container "> <h5> #Not Signed In </h5> </div>
 
-  <div class="container container-index">
-      <h1> Welcome to Twitter </h1>
+
+  <div class="container-index row">
+    <div class="col-sm-6">
+        <h1> Welcome to Twitter </h1>
+        <p class="text">
+          Connect with your friends all around ...
+        </p>
+      </div>
+
+<div class="col-sm-6">
+                <div class="log-in panel">
+                    Log in
+            </div>
+
+
+
+                <div class="sign-up panel">
+                    Sign Up
+            </div>
 </div>
 
-<div class="container container-index"> <h5> #Not Signed In </h5> </div>
 
+
+<div class="col-sm-12">
+<p class="footer-link"> Footer text goes here </p>
+</div>
+
+</div>
 <% else %>
-
-<div> Signed in </div>
+ <!-- if signed in goes to home page  -->
+<script> document.location = "/home" </script>
 
 <% end %>

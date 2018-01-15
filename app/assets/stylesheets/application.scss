@@ -23,6 +23,50 @@ body {
     background-color: white;
 }
 
+.rounded-image{
+border-radius: 10%
+}
+
+.post-panel{
+  margin-top: -21px;
+
+}
+.post-title{
+  text-align: left;
+  margin-left: 15px;
+}
+.post-content{
+    text-align: left;
+    margin-left: 15px;
+}
+
+.post-links{
+
+}
+
+.post-owner{
+  color:black;
+  font-weight: bold;
+}
+
+.post-created{
+  opacity: 0.7;
+}
+
+.g-links{
+  opacity: 0.5;
+  font-size: 120%;
+  margin-right: 50px;
+}
+
+.post-form-panel{
+  margin-bottom: -21px;
+}
+
+.tweet{
+  color:white;
+}
+
 // .navbar-brand {
 //   position: absolute;
 //   left: 50%

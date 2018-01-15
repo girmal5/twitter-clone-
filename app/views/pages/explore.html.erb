@@ -1,9 +1,25 @@
+
+<div class="container" >
   <div class="col-xs-6">
         <% for @p in @posts %>
         <div class="panel panel-default">
           <div class="panel-body">
+            <p class="post-title"> <span class="post-owner"> <%= User.find(@p.user_id).username %> </span> - <span class="post-created" > <%= @p.created_at.to_formatted_s(:short) %> </span> </p>
+
           <p><%= @p.content %></p>
         </div>
       </div>
       <% end %>
       </div>
+
+    </div>
+
+
+      <!-- <div class="col-sm-6">
+          <img class="rounded-image" src="/avatar.png" height="40px" width="40px" > </img>
+
+
+
+        <p class="post-title"> <span class="post-owner"> <%= User.find(@p.user_id).username %> </span> - <span class="post-created" > <%= @p.created_at.to_formatted_s(:short) %> </span> </p>
+        <p class="post-content"><%= @p.content %></p>
+      </div> -->
