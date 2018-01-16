@@ -40,14 +40,14 @@
     .log-in {
       float: right;
       width: 350px;
-      height: 250px;
+      height: 50px;
       margin-top: 10%;
     }
 
     .sign-up {
       float: right;
       width: 350px;
-      height: 250px;
+      height: 50px;
     }
 
   </style>
@@ -64,13 +64,15 @@
 
 <div class="col-sm-6">
                 <div class="log-in panel">
-                    Log in
+                  <center>  <%= link_to('Sign in',new_user_session_path) %> </center>
+
             </div>
 
 
 
                 <div class="sign-up panel">
-                    Sign Up
+                  <center>  <%= link_to('Sign Up', new_user_registration_path) %> </center>
+
             </div>
 </div>
 
