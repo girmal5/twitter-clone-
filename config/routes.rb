@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-resources :relationships
 
 resources :users do
   member do
@@ -11,6 +10,7 @@ resources :users do
 end
 
 resources :posts
+resources :relationships
 
 
   root 'pages#index'

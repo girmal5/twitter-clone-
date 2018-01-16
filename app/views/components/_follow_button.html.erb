@@ -1,7 +1,7 @@
 <% if current_user.id != user.id %>
   <div class="panel panel-default">
       <div class="panel-body">
-        
+        <center>
         <% if !current_user.following?(user) %>
           <%= form_for(current_user.active_relationships.build) do |f| %>
                 <div> <%= hidden_field_tag :followed_id, user.id %> </div>
@@ -16,7 +16,7 @@
 
         <% end %>
         <% end %>
-
+</center>
       </div>
     </div>
   <% end %>
