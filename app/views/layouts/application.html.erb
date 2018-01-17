@@ -12,11 +12,17 @@
     <%= render '/layouts/nav' %>
 
 
-    <div class="container">
-      <span class="notice"><%= notice %></span> 
-    <span class="alert"><%= alert %></span>
+    <% if notice %>
+  		<p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+		<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
 
-    <%= yield %>
+	<div class = "container">
+		<%= yield %>
+	</div>
+	
 
 
   </div>
