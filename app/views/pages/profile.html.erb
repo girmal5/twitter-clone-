@@ -9,6 +9,11 @@
               <%= link_to "Add Friend", friendships_path(:friend_id => User.find_by_username(params[:id])), :method => :post,class:"btn btn-primary"%>
 
 
+              <%= link_to "Remove Friend", friendship_path(@user1.id), :method => :delete,class:"btn btn-primary"%>
+
+
+
+
               <% else %>
 
               <%end%>
@@ -87,6 +92,15 @@
   <div class="panel panel-default">
     <div class="panel-body">
     <p>Friend List</p>
+<p> <h2> <%= @username %>'s Friend List </h2> </p>
+
+
+
+
+
+<ul>
+
+</ul >
 
 
   </div>
