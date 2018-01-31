@@ -3,22 +3,45 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="jumbotron">
-              <h1>Profile: <%= @username %> </h1>
+          <center>    <h2>You Are Currently Viewing Profile Of: "<%= @username %>" </h2> </center>
 
+          <hr>
               <% if (current_user.id != @user1.id) %>
-              <%= link_to "Add Friend", friendships_path(:friend_id => User.find_by_username(params[:id])), :method => :post,class:"btn btn-primary"%>
+              <h4> <%= link_to "Send friend request to", :action => "sendrequest" %> -> <%= @username %><h4><br>
+
+                    <%= link_to "Accept Pending Friend Request", :action => "acceptrequest" %>
+
+                    <h3>  Current Friends </h3>
+                    <% @friendz.each do |frnds| %>
 
 
-              <%= link_to "Remove Friend", friendship_path(@user1.id), :method => :delete,class:"btn btn-primary"%>
+                  <div>     <%=frnds.username%>   </div>
 
-
+                    <%end%>
+                      <h4>    <%= link_to "Remove Friend", :action => "removerequest" %> </h4> <br>
 
 
               <% else %>
 
+
               <%end%>
 
+              <center>
 
+
+
+
+                        </center>
+
+
+           <h3> Pending Requests to Accept </h3>
+              <% @friend_requests.each do |request| %>
+
+
+            <div>     <%=request.username%>   </div>
+              <%end%>
+
+              <h3> Requests Sent </h3>
 
             <!-- <p>Stats</p>
             <p><%= current_user.followers.count %> </p> -->
@@ -85,15 +108,20 @@
     </div>
 </div>
 
-
   <% end %>
 
-<div class="col-xs-12">
+<div class="col-xs-6">
   <div class="panel panel-default">
     <div class="panel-body">
-    <p>Friend List</p>
-<p> <h2> <%= @username %>'s Friend List </h2> </p>
 
+
+
+    <p>Friend List id's Test</p>
+<p> <h2> <%= @username %></h2> </p>
+
+<% @friendships.each do |x| %>
+  <p> <%= x.friend_id %> </p>
+<% end %>
 
 
 

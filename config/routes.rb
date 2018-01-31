@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :friendships
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -18,6 +18,12 @@ resources :relationships
 
   root 'pages#index'
 
+  get '/sendrequest/:id' => 'pages#sendrequest'
+
+  get '/acceptrequest/:id' => 'pages#acceptrequest'
+
+
+  get '/removerequest/:id' => 'pages#removerequest'
 
   get '/home' => 'pages#home'
 

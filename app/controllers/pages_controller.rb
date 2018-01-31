@@ -9,7 +9,24 @@ class PagesController < ApplicationController
   end
 
   def profile
+
+    @friendships=Friendship.all
+
   @user1=User.find_by_username(params[:id])
+    @username = params[:id]
+
+@user4 = current_user
+@user5 = User.find_by_username(params[:id])
+# render json:@user4
+# return
+
+@friend_requests = @user4.requested_friends
+@friendz = @user4.friends
+
+  # @user4.remove_friend(@user5)
+
+
+
     if (@user1)
 
       @username = params[:id]
@@ -31,35 +48,29 @@ class PagesController < ApplicationController
     params.require(:friendship).permit(:user_id, :friend_id)
   end
 
-  def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-    if @friendship.save
-      flash[:notice] = "Added friend."
-      redirect_to root_url
-    else
-      flash[:error] = "Unable to add friend."
-      redirect_to root_url
-    end
+
+  def sendrequest
+    @user4 = current_user
+    @user5 = User.find_by_username(params[:id])
+    @user4.friend_request(@user5)
+  end
+
+  def removerequest
+    @user4 = current_user
+    @user5 = User.find_by_username(params[:id])
+    @user4.remove_friend(@user5)
   end
 
 
-  def destroy
+  def acceptrequest
 
-    # user=current_user.friendships.find(Friendship.find(params[:id]))
-    # user=user.find(2)
-    # user=user.has_friend
-    # render json: @friendship
-    # return
-
-    @friendship = current_user.friendships.find(Friendship.find_by(user_id:params[:friend_id]))
+    @user4 = current_user
+    @user5 = User.find_by_username(params[:id])
+    @user4.accept_request(@user5)
+    
 
 
-    @friendship.destroy
-    flash[:notice] = "Removed friendship."
-    redirect_to current_user
+
   end
-
-
-
 
 end
